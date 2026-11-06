@@ -12,7 +12,15 @@ The SDK exposes **23 typed methods**, one per documented endpoint, each with a p
 
 ## Installation
 
-Maven:
+The SDK is not on Maven Central. Build it from source, which installs it in your local Maven repository:
+
+```sh
+git clone https://github.com/automdev/autom-java.git
+cd autom-java
+mvn -q install -DskipTests
+```
+
+Then add it to your project. Maven:
 
 ```xml
 <dependency>
@@ -22,7 +30,7 @@ Maven:
 </dependency>
 ```
 
-Gradle:
+Gradle, with `mavenLocal()` in your repositories:
 
 ```kotlin
 implementation("dev.autom:autom:0.1.0")
@@ -167,6 +175,20 @@ AutomClient client = AutomClient.builder()
 | `stats()` | GET `/v1/stats` | Infrastructure health for an engine or endpoint over the last hour. Not scoped to your account or tenant. Enabled per account: HTTP 403 mea… |
 | `usage()` | GET `/v1/usage` | Retrieve real-time usage statistics and credit balance for your Autom account. |
 | `yahooSearch()` | GET / POST `/v1/yahoo/search` | Query Yahoo via API and retrieve structured organic results with country and language. |
+
+## All Autom SDKs
+
+| SDK | Package | Install |
+| --- | --- | --- |
+| Node.js | [`@automdev/sdk`](https://www.npmjs.com/package/@automdev/sdk) | `npm install @automdev/sdk` |
+| Python | [`automdev`](https://pypi.org/project/automdev/) | `pip install automdev` |
+| Go | [`autom-go`](https://pkg.go.dev/github.com/automdev/autom-go) | `go get github.com/automdev/autom-go` |
+| .NET | [`Autom`](https://www.nuget.org/packages/Autom) | `dotnet add package Autom` |
+| Ruby | [`autom`](https://rubygems.org/gems/autom) | `gem install autom` |
+| PHP | [`autom/sdk`](https://packagist.org/packages/autom/sdk) | `composer require autom/sdk` |
+| Java | [`autom-java`](https://github.com/automdev/autom-java) | build from source, see its README |
+| CLI | [`@automdev/cli`](https://www.npmjs.com/package/@automdev/cli) | `npm install -g @automdev/cli` |
+| MCP server | [`@automdev/mcp`](https://www.npmjs.com/package/@automdev/mcp) | `npx -y @automdev/mcp` |
 
 ## License
 
